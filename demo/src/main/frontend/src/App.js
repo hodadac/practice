@@ -3,23 +3,23 @@ import axios from 'axios';
 
 function App() {
 
-  const [inputId, setInputId] = useState('');
-  const [inputPw, setInputPw] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleInputId = (e)=>{
-      setInputId(e.target.value);
+  const handleEmail = (e)=>{
+      setEmail(e.target.value);
   };
-  const handleInputPw = (e)=>{
-        setInputPw(e.target.value);
+  const handlePassword = (e)=>{
+        setPassword(e.target.value);
   };
 
 
   const onClickLogin = async () => {
-      console.log("ID: ", inputId);
-      console.log("PW: ", inputPw);
+      console.log("ID: ", email);
+      console.log("PW: ", password);
       const user = {
-          inputId,
-          inputPw
+          email,
+          password
       };
       try {
           const response: Response = await fetch('/api/login', {
@@ -31,6 +31,7 @@ function App() {
           });
           if(response.ok){
               alert('login success')
+              console.log(response.json())
           }else{
               alert('login fail')
           }
@@ -42,7 +43,7 @@ function App() {
 
   // useEffect(() => {
   //   axios.post('/api/hello')
-  //       .then(response => setInputId(response.data))
+  //       .then(response => setemail(response.data))
   //       .catch(error => console.log(error))
   // }, []);
 
@@ -52,14 +53,14 @@ function App() {
               <input
                   type="email"
                   name="input_id"
-                  value={inputId}
-                  onChange={handleInputId}
+                  value={email}
+                  onChange={handleEmail}
               />
               <input
                   type="password"
                   name="input_pw"
-                  value={inputPw}
-                  onChange={handleInputPw}
+                  value={password}
+                  onChange={handlePassword}
               />
 
               <button type="button" onClick={onClickLogin}>제출</button>

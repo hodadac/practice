@@ -19,8 +19,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/login")
-    public Member login(@RequestBody final MemberRequestDto params) {
-        params.toEntity();
-        return params.toEntity();
+    public MemberResponseDto login(@RequestBody MemberRequestDto params) {
+        return memberService.findBy(params);
     }
 }

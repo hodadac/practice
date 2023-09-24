@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.controller.dto.MemberRequestDto;
 import com.example.demo.controller.dto.MemberResponseDto;
 import com.example.demo.repository.MemberRepository;
+import com.example.demo.repository.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class MemberServiceImp implements MemberService{
 
     @Override
     public MemberResponseDto findBy(MemberRequestDto params) {
-        MemberResponseDto entity = memberRepository.findByEmailAndPassword(params.getEmail(), params.getPassword());
-        return entity;
+        Member loginMember = params.toEntity();
+        return new MemberResponseDto(memberRepository.findByEmailAndPassword(loginMember.getEmail(), loginMember.getPassword()));
     }
 }
