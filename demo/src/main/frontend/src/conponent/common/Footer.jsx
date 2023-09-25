@@ -3,9 +3,7 @@ function Footer(){
 
     return(
         <>
-            <p>
-                footer
-            </p>
+            <font>Footer</font>
         </>
     );
 }

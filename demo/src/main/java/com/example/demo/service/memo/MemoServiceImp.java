@@ -1,5 +1,6 @@
 package com.example.demo.service.memo;
 
+import com.example.demo.controller.memo.dto.MemoRequestDto;
 import com.example.demo.controller.memo.dto.MemoResponseDto;
 import com.example.demo.repository.memo.MemoRepository;
 import com.example.demo.repository.memo.entity.Memo;
@@ -16,5 +17,16 @@ public class MemoServiceImp implements MemoService{
     @Override
     public List<Memo> findBy() {
         return memoRepository.findAll();
+    }
+
+    @Override
+    public String memoInsert(MemoRequestDto params) {
+        try{
+            memoRepository.save(params.toEntity());
+            return "success";
+        }catch(Exception e){
+            return "error";
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.controller.memo;
 
+import com.example.demo.controller.memo.dto.MemoRequestDto;
 import com.example.demo.repository.memo.entity.Memo;
 import com.example.demo.service.memo.MemoService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +21,8 @@ public class MemoController {
     }
 
     @PostMapping("/insert")
-    public String memoInsert(@RequestBody String json){
-        return json;
+    public String memoInsert(@RequestBody MemoRequestDto params){
+        return  memoService.memoInsert(params);
     }
 
 }

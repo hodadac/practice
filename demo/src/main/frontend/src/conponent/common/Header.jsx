@@ -4,14 +4,14 @@ function Header(){
 
     return(
         <>
-            <p>
+            <div>
                 <Link to="/">
-                   <p>home</p>
+                   <font>home</font>
                 </Link>
                 <Link to="/login"><li>login</li></Link>
                 <Link to="/signUp"><li>signUp</li></Link>
 
-            </p>
+            </div>
         </>
     );
 }

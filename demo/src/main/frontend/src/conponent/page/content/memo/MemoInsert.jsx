@@ -1,15 +1,22 @@
 import React, {useState} from 'react';
 
 function MemoInsert(){
-    const [text,setText] = useState("");
-    const handleText = (e) => {
-        setText(e.target.value);
+    const [content,setContent] = useState("");
+    const [memberId, setMemberId] = useState("");
+    const handleContent = (e) => {
+        setContent(e.target.value);
     };
+    const handleMemberId = (e) =>{
+        setMemberId(e.target.value);
+    }
+
 
     const onClickText = async () => {
-        console.log("Text: ", text);
+        console.log("Content: ", content);
+        console.log("memberId:", memberId);
         const memo = {
-            text
+            memberId,
+            content
         };
         try {
             const response: Response = await fetch('/api/memo/insert', {
@@ -34,11 +41,18 @@ function MemoInsert(){
     return(
         <>
             <div>
-                <p>memoInsert</p>
+                <font>memoInsert</font>
+                <br/>
+                <input
+                    type="text"
+                    value={memberId}
+                    onChange={handleMemberId}
+                />
+                <br/>
                 <textarea
                     name="input_text"
-                    value={text}
-                    onChange={handleText}
+                    value={content}
+                    onChange={handleContent}
                 />
                 <button type="button" onClick={onClickText}>등록</button>
             </div>

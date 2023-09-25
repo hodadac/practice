@@ -1,24 +1,29 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect, memo} from 'react';
 
 function MemoList(){
     const [memoList , setMemoList] = useState("");
 
+    useEffect(()=>{
+        fetch("/api/memo",{
+            method:"GET"
+        }).then((res) => res.json())
+            .then(data => {
+                console.log(data)
+                console.log(typeof data);
+                setMemoList(data);
+            })
 
-    useEffect( async() =>{
-            const response:Response = await fetch("/api/memo", {
-                method: 'GET'
-            });
-            response.json().then(memos => {
-                    console.log(memos);
-                    setMemoList(memos);
-                })
-    }, []);
-
+    })
 
     return(
         <>
             <div>
-                <p>memoList</p>
+                {Array.isArray(memoList)
+                    ? memoList.map(element => {
+                        return <font>{element["content"]}</font>;
+                    })
+                    : null}
+                <font>memoLists</font>
             </div>
         </>
     )

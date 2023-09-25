@@ -3,9 +3,7 @@ function NotFound(){
 
     return(
         <>
-            <p>
-                NotFound
-            </p>
+            <font>404 NOT FOUND</font>
         </>
     );
 }
