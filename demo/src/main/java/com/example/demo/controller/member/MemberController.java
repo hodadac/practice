@@ -1,14 +1,10 @@
-package com.example.demo.controller;
+package com.example.demo.controller.member;
 
-import com.example.demo.controller.dto.MemberRequestDto;
-import com.example.demo.controller.dto.MemberResponseDto;
-import com.example.demo.repository.entity.Member;
-import com.example.demo.service.MemberService;
+import com.example.demo.controller.member.dto.MemberRequestDto;
+import com.example.demo.controller.member.dto.MemberResponseDto;
+import com.example.demo.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")

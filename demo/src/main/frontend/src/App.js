@@ -1,15 +1,21 @@
 import React from 'react';
 import Header from "./conponent/common/Header";
 import Footer from "./conponent/common/Footer";
-import Main from "./conponent/common/Main";
+import Main from "./conponent/page/section/Main";
+import MainAdd from "./conponent/page/section/MainAdd";
+import {BrowserRouter} from "react-router-dom";
+
 
 function App() {
 
   return(
       <>
-          <Header/>
-          <Main/>
-          <Footer/>
+          <BrowserRouter>
+              <Header/>
+              <Main/>
+              <MainAdd/>
+              <Footer/>
+          </BrowserRouter>
       </>
   )
 }

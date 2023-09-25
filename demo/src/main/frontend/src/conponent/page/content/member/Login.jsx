@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from "react-router-dom";
 
 function Login(){
     const [email, setEmail] = useState('');
@@ -31,7 +32,8 @@ function Login(){
             if(response.ok){
                 alert('login success');
                 response.json().then( data => {
-                    sessionStorage.setItem("member", JSON.stringify(data));
+                    console.log(data)
+                    // sessionStorage.setItem("member", JSON.stringify(data));
                 })
             }else{
                 alert('login fail')
@@ -42,11 +44,6 @@ function Login(){
 
     }
 
-    // useEffect(() => {
-    //   axios.post('/api/hello')
-    //       .then(response => setemail(response.data))
-    //       .catch(error => console.log(error))
-    // }, []);
 
     return (
         <>
@@ -65,7 +62,7 @@ function Login(){
                 />
 
                 <button type="button" onClick={onClickLogin}>제출</button>
-                <button type="button"> 회원가입 </button>
+                <Link  to="/signUp"><button>회원가입</button></Link>
             </div>
         </>
 

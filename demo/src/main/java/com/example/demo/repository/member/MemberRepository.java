@@ -1,7 +1,6 @@
-package com.example.demo.repository;
+package com.example.demo.repository.member;
 
-import com.example.demo.controller.dto.MemberResponseDto;
-import com.example.demo.repository.entity.Member;
+import com.example.demo.repository.member.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

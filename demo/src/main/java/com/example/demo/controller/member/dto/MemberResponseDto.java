@@ -1,6 +1,6 @@
-package com.example.demo.controller.dto;
+package com.example.demo.controller.member.dto;
 
-import com.example.demo.repository.entity.Member;
+import com.example.demo.repository.member.entity.Member;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

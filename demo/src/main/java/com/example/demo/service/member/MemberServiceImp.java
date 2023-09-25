@@ -1,9 +1,9 @@
-package com.example.demo.service;
+package com.example.demo.service.member;
 
-import com.example.demo.controller.dto.MemberRequestDto;
-import com.example.demo.controller.dto.MemberResponseDto;
-import com.example.demo.repository.MemberRepository;
-import com.example.demo.repository.entity.Member;
+import com.example.demo.controller.member.dto.MemberRequestDto;
+import com.example.demo.controller.member.dto.MemberResponseDto;
+import com.example.demo.repository.member.MemberRepository;
+import com.example.demo.repository.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
