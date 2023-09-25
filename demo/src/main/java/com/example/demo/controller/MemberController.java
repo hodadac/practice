@@ -22,4 +22,9 @@ public class MemberController {
     public MemberResponseDto login(@RequestBody MemberRequestDto params) {
         return memberService.findBy(params);
     }
+    @PostMapping("/signUp")
+    public String signUp(@RequestBody MemberRequestDto params){
+        return memberService.signUpMember(params);
+    }
 }
+

@@ -17,4 +17,14 @@ public class MemberServiceImp implements MemberService{
         Member loginMember = params.toEntity();
         return new MemberResponseDto(memberRepository.findByEmailAndPassword(loginMember.getEmail(), loginMember.getPassword()));
     }
+
+    @Override
+    public String signUpMember(MemberRequestDto params) {
+        try{
+            memberRepository.save(params.toEntity());
+            return "success";
+        }catch (Exception e){
+            return "error";
+        }
+    }
 }
