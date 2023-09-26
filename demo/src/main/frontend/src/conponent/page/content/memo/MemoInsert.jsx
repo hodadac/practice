@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
-function MemoInsert(props){
+function MemoInsert(){
     const [content,setContent] = useState("");
-    const [memberId, setMemberId] = useState("");
+    const memberId = localStorage.getItem('member');
     const handleContent = (e) => {
         setContent(e.target.value);
     };
@@ -25,7 +25,7 @@ function MemoInsert(props){
             });
             if(response.ok){
                 alert('Registration success');
-                console.log(response.text())
+                document.location.href="/";
             }else{
                 alert('Registration fail')
             }
@@ -39,11 +39,6 @@ function MemoInsert(props){
         <>
             <div>
                 <font>memoInsert</font>
-                <br/>
-                <input
-                    type="hidden"
-                    value={memberId}
-                />
                 <br/>
                 <textarea
                     name="input_text"

@@ -7,6 +7,6 @@ import com.example.demo.repository.memo.entity.Memo;
 import java.util.List;
 
 public interface MemoService {
-    List<Memo> findBy();
+    List<Memo> memberMemo(MemoRequestDto params);
     String memoInsert(MemoRequestDto params);
 }
