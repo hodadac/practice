@@ -13,17 +13,22 @@ function MemoList(){
                 setMemoList(data);
             })
 
-    })
+    },[])
 
     return(
         <>
+
+            <font>memoLists</font>
             <div>
                 {Array.isArray(memoList)
                     ? memoList.map(element => {
-                        return <font>{element["content"]}</font>;
+                        return<ul>
+                                <li>{element["memberId"]}</li>
+                                <li>{element["content"]}</li>
+                            </ul>;
                     })
-                    : null}
-                <font>memoLists</font>
+                    : null
+                }
             </div>
         </>
     )
