@@ -15,8 +15,9 @@ public class MemoServiceImp implements MemoService{
     private final MemoRepository memoRepository;
 
     @Override
-    public List<Memo> findBy() {
-        return memoRepository.findAll();
+    public List<Memo> memberMemo(MemoRequestDto params) {
+        Memo memberInfo = params.toEntity();
+        return memoRepository.findByMemberId(memberInfo.getMemberId());
     }
 
     @Override

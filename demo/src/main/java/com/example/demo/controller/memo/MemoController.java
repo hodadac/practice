@@ -15,9 +15,9 @@ import java.util.List;
 public class MemoController {
 
     private final MemoService memoService;
-    @GetMapping("")
-    public List<Memo> memoList(){
-        return memoService.findBy();
+    @PostMapping("")
+    public List<Memo> memoList(@RequestBody MemoRequestDto params){
+        return memoService.memberMemo(params);
     }
 
     @PostMapping("/insert")

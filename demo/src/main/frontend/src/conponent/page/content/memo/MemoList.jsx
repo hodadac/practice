@@ -1,11 +1,20 @@
-import React, {useState, useEffect, memo} from 'react';
+import React, {useState, useEffect} from 'react';
+import MemoInsert from "./MemoInsert";
 
 function MemoList(){
     const [memoList , setMemoList] = useState("");
+    const memberId = localStorage.getItem('member');
+    const memoGet = {
+        memberId
+    }
 
     useEffect(()=>{
         fetch("/api/memo",{
-            method:"GET"
+            method:"POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(memoGet),
         }).then((res) => res.json())
             .then(data => {
                 console.log(data)
@@ -22,14 +31,14 @@ function MemoList(){
             <div>
                 {Array.isArray(memoList)
                     ? memoList.map(element => {
-                        return<ul>
-                                <li>{element["memberId"]}</li>
+                        return<ul key={element["memoIdx"]}>
                                 <li>{element["content"]}</li>
                             </ul>;
                     })
                     : null
                 }
             </div>
+            <MemoInsert/>
         </>
     )
 }
