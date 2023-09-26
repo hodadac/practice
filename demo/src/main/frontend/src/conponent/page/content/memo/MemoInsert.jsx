@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 
-function MemoInsert(){
+function MemoInsert(props){
     const [content,setContent] = useState("");
     const [memberId, setMemberId] = useState("");
     const handleContent = (e) => {
         setContent(e.target.value);
     };
-    const handleMemberId = (e) =>{
-        setMemberId(e.target.value);
-    }
 
 
     const onClickText = async () => {
@@ -44,9 +41,8 @@ function MemoInsert(){
                 <font>memoInsert</font>
                 <br/>
                 <input
-                    type="text"
+                    type="hidden"
                     value={memberId}
-                    onChange={handleMemberId}
                 />
                 <br/>
                 <textarea

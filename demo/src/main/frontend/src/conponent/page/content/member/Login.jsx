@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 
+
 function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -32,11 +33,13 @@ function Login(){
             if(response.ok){
                 alert('login success');
                 response.json().then( data => {
-                    console.log(data)
-                    // sessionStorage.setItem("member", JSON.stringify(data));
+                    console.log(data);
+                    localStorage.setItem("member", data["idx"]);
+                    document.location.href="/";
                 })
             }else{
                 alert('login fail')
+
             }
         }catch (error){
             console.error('Error',error)
