@@ -9,4 +9,5 @@ import java.util.List;
 public interface MemoService {
     List<Memo> memberMemo(MemoRequestDto params);
     String memoInsert(MemoRequestDto params);
+
 }
