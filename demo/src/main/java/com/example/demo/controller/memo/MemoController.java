@@ -28,20 +28,16 @@ public class MemoController {
         return  memoService.memoInsert(params);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public String pythonExecute() throws IOException, InterruptedException {
-        ProcessBuilder builder = new ProcessBuilder();
-
-        builder.command("cmd.exe", "/c", ".\\python test.py"); // Windows OS
+        ProcessBuilder builder = new ProcessBuilder("python","C:/Users/HANSUNG33/Desktop/python/hello.py");
 
         Process process = builder.start();
 
         BufferedReader br = new BufferedReader(new InputStreamReader( process.getInputStream() ));
 
-        String line = null;
-        while( (line = br.readLine()) != null ){
-            System.out.println(line);
-        }
+        String line = br.readLine();
+
         process.waitFor();
         process.destroy();
         return line;

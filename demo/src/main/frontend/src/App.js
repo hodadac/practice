@@ -7,6 +7,7 @@ import Login from "./conponent/page/content/member/Login";
 import MemoList from "./conponent/page/content/memo/MemoList";
 import SignUp from "./conponent/page/content/member/SignUp";
 import NotFound from "./conponent/page/content/NotFound";
+import PythonText from "./conponent/page/content/memo/PythonText";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                       <Route path="/signUp" element={<SignUp/>}></Route>
                   </Routes>
               }
+              <PythonText/>
               <Footer/>
           </BrowserRouter>
       </>
