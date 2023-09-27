@@ -11,5 +11,10 @@
         <module name="demo.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lastdemo" target="17" />
+      <module name="lastdemo.main" target="17" />
+      <module name="lastdemo.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

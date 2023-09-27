@@ -2,8 +2,11 @@ import React,{useEffect,useState} from 'react';
 import Header from "./conponent/common/Header";
 import Footer from "./conponent/common/Footer";
 import Main from "./conponent/common/Main";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Login from "./conponent/page/content/member/Login";
+import MemoList from "./conponent/page/content/memo/MemoList";
+import SignUp from "./conponent/page/content/member/SignUp";
+import NotFound from "./conponent/page/content/NotFound";
 
 
 function App() {
@@ -27,7 +30,10 @@ function App() {
               <Header isLogin={isLogin}/>
               {isLogin ?
                   <Main isLogin={isLogin}/>:
-                  <Login/>
+                  <Routes>
+                      <Route path="/login" element={<Login/>}></Route>
+                      <Route path="/signUp" element={<SignUp/>}></Route>
+                  </Routes>
               }
               <Footer/>
           </BrowserRouter>

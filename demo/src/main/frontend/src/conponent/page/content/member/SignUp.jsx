@@ -43,6 +43,7 @@ function SignUp() {
                 response.text().then(data => {
                     console.log(data);
                 })
+                document.location.href="/login"
             } else {
                 alert('SignUp fail')
             }

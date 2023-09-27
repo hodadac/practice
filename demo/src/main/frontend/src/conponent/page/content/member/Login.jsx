@@ -64,7 +64,7 @@ function Login(){
                     onChange={handlePassword}
                 />
 
-                <button type="button" onClick={onClickLogin}>제출</button>
+                <button type="button" onClick={onClickLogin}>로그인</button>
                 <Link  to="/signUp"><button>회원가입</button></Link>
             </div>
         </>
