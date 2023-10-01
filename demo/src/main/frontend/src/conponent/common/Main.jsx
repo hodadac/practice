@@ -5,6 +5,7 @@ import Login from "../page/content/member/Login";
 import SignUp from "../page/content/member/SignUp";
 import NotFound from "../page/content/NotFound";
 import PythonText from "../page/content/memo/PythonText";
+
 function Main(){
 
     return(
@@ -13,6 +14,7 @@ function Main(){
                 <Route path="/" element={<MemoList/>}></Route>
                 <Route path="*" element={<NotFound/>}></Route>
             </Routes>
+            <PythonText/>
         </>
     );
 }

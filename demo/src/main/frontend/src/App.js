@@ -4,25 +4,30 @@ import Footer from "./conponent/common/Footer";
 import Main from "./conponent/common/Main";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Login from "./conponent/page/content/member/Login";
-import MemoList from "./conponent/page/content/memo/MemoList";
 import SignUp from "./conponent/page/content/member/SignUp";
-import NotFound from "./conponent/page/content/NotFound";
-import PythonText from "./conponent/page/content/memo/PythonText";
 
 
 function App() {
     const [isLogin, setIsLogin] = useState(false);
 
-
     useEffect(() => {
+
         if(localStorage.getItem('member') === null){
             // sessionStorage 에 user_id 라는 key 값으로 저장된 값이 없다면
-            console.log('isLogin ?? :: ', isLogin)
+            console.log('isLogin :', isLogin)
+
         } else {
             // sessionStorage 에 user_id 라는 key 값으로 저장된 값이 있다면
             // 로그인 상태 변경
             setIsLogin(true)
-            console.log('isLogin ?? :: ', isLogin)
+            console.log('isLogin :', isLogin)
+            fetch("/api",{
+                method:"GET",
+            }).then(res =>{
+                if(res.ok){
+                    console.log("create success")
+                }
+            })
         }
     })
 
@@ -37,7 +42,6 @@ function App() {
                       <Route path="/signUp" element={<SignUp/>}></Route>
                   </Routes>
               }
-              <PythonText/>
               <Footer/>
           </BrowserRouter>
       </>

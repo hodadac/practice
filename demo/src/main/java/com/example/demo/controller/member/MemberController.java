@@ -6,6 +6,10 @@ import com.example.demo.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api")
@@ -22,5 +26,19 @@ public class MemberController {
     public String signUp(@RequestBody MemberRequestDto params){
         return memberService.signUpMember(params);
     }
+
+    @GetMapping("")
+    public String pythonExecute() throws IOException, InterruptedException {
+
+        ProcessBuilder builder = new ProcessBuilder();
+        builder.command("cmd.exe","/c","pip install selenium bs4 request");
+
+        Process processFirst = builder.start();
+        processFirst.waitFor();
+        processFirst.destroy();
+
+        return "success";
+    }
+
 }
 
