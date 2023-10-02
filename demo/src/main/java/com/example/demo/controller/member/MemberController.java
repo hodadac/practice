@@ -27,18 +27,5 @@ public class MemberController {
         return memberService.signUpMember(params);
     }
 
-    @GetMapping("")
-    public String pythonExecute() throws IOException, InterruptedException {
-
-        ProcessBuilder builder = new ProcessBuilder();
-        builder.command("cmd.exe","/c","pip install selenium bs4 request");
-
-        Process processFirst = builder.start();
-        processFirst.waitFor();
-        processFirst.destroy();
-
-        return "success";
-    }
-
 }
 

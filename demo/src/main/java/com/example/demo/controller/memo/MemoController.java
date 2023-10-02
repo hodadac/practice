@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
@@ -35,7 +32,7 @@ public class MemoController {
     public String pythonExecute() throws IOException, InterruptedException {
 
         ProcessBuilder builder = new ProcessBuilder();
-        builder.command("cmd.exe","/c","python world.py");
+        builder.command("cmd.exe","/c","cd demo&python hello.py ");
 
         Process process = builder.start();
         BufferedReader br = new BufferedReader(new InputStreamReader( process.getInputStream(),"euc-kr"));
